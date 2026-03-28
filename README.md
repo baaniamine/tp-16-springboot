@@ -36,32 +36,22 @@ Place tes captures dans `docs/screenshots/` avec les noms ci-dessous.
 
 ### Page d'accueil
 
-![Page d'accueil](docs/screenshots/home.png)
+<img width="1900" height="983" alt="image" src="https://github.com/user-attachments/assets/5a3fe11c-d419-4799-93ea-3d9e93eea45a" />
 
 ### Health Check
 
-![Health Check](docs/screenshots/health-check.png)
+<img width="1910" height="993" alt="image" src="https://github.com/user-attachments/assets/2688a1a9-c1d7-4f1a-b43e-c42c4d459307" />
 
-### Actuator Health
+### Grafana login page
+<img width="1918" height="807" alt="image" src="https://github.com/user-attachments/assets/367379f6-2f01-45c9-959f-1b978083b6f9" />
+<img width="1905" height="830" alt="image" src="https://github.com/user-attachments/assets/67a75021-1d13-4481-97df-300d2cea4d63" />
 
-![Actuator Health](docs/screenshots/actuator-health.png)
-
-### Actuator Info
-
-![Actuator Info](docs/screenshots/actuator-info.png)
-
-### Actuator Metrics
-
-![Actuator Metrics](docs/screenshots/actuator-metrics.png)
-
-### Actuator Prometheus
-
-![Actuator Prometheus](docs/screenshots/actuator-prometheus.png)
 
 ### Prometheus Dashboard
 
-![Prometheus Dashboard](docs/screenshots/prometheus-dashboard.png)
+<img width="1919" height="877" alt="image" src="https://github.com/user-attachments/assets/ee5cd64b-2693-460d-824f-16aa2661ae2c" />
 
 ### Grafana Dashboard
 
-![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+<img width="1919" height="1003" alt="image" src="https://github.com/user-attachments/assets/2c457896-a362-417d-8ec9-f80230402e63" />
+<img width="1902" height="872" alt="image" src="https://github.com/user-attachments/assets/b040de19-fc83-4c72-9232-b5430e4f8a60" />
