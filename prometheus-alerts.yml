@@ -1,0 +1,60 @@
+# Règles d'alertes pour Prometheus
+
+groups:
+  - name: spring-boot-alerts
+    interval: 10s
+    rules:
+      # Alerte si l'application est indisponible
+      - alert: ApplicationDown
+        expr: up{job="spring-boot-app"} == 0
+        for: 10s
+        labels:
+          severity: critical
+          category: availability
+        annotations:
+          summary: "Application Spring Boot indisponible"
+          description: "L'application {{ $labels.application }} est DOWN depuis {{ $value }}s"
+
+      # Alerte si la latence des requêtes est trop élevée
+      - alert: HighLatency
+        expr: rate(http_server_requests_seconds_sum[1m]) / rate(http_server_requests_seconds_count[1m]) > 2
+        for: 1m
+        labels:
+          severity: warning
+          category: performance
+        annotations:
+          summary: "Latence élevée détectée"
+          description: "La latence moyenne est de {{ $value }}s sur la dernière minute"
+
+      # Alerte si le taux d'erreur est élevé
+      - alert: HighErrorRate
+        expr: rate(http_server_requests_seconds_count{status=~"5.."}[1m]) > 0.05
+        for: 1m
+        labels:
+          severity: warning
+          category: errors
+        annotations:
+          summary: "Taux d'erreurs HTTP élevé"
+          description: "Le taux d'erreur 5xx est de {{ $value }} requêtes/s"
+
+      # Alerte si l'utilisation mémoire est excessive
+      - alert: HighMemoryUsage
+        expr: (jvm_memory_used_bytes{area="heap"} / jvm_memory_max_bytes{area="heap"}) > 0.9
+        for: 2m
+        labels:
+          severity: warning
+          category: resources
+        annotations:
+          summary: "Utilisation mémoire JVM élevée"
+          description: "L'utilisation mémoire heap est à {{ $value | humanizePercentage }}"
+
+      # Alerte si le nombre de threads est élevé
+      - alert: HighThreadCount
+        expr: jvm_threads_live_threads > 100
+        for: 5m
+        labels:
+          severity: info
+          category: resources
+        annotations:
+          summary: "Nombre de threads JVM élevé"
+          description: "Le nombre de threads actifs est de {{ $value }}"
